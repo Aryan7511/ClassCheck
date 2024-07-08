@@ -3,12 +3,15 @@ import { NextResponse } from 'next/server';
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
-  const { isAuthenticated } = getKindeServerSession();
+  const { isAuthenticated, getUser } = getKindeServerSession();
+  // console.log(await getUser());
   if (!(await isAuthenticated())) {
     return NextResponse.redirect(
       new URL('/api/auth/login?post_login_redirect_url=/dashboard', request.url)
     );
   }
+
+  return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more
