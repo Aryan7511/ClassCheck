@@ -6,8 +6,8 @@ import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 export default function Home() {
   const router = useRouter();
   const { isAuthenticated, isLoading } = useKindeBrowserClient();
-  console.log(isAuthenticated);
-  console.log(isLoading);
+  // console.log(isAuthenticated);
+  // console.log(isLoading);
 
   useEffect(() => {
     if (!isLoading) {
